@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>শুভ বিবাহ - রাকিবা ও শাহিন | Wedding Invitation</title>
+<meta name="description" content="রাকিবা সুলতানা রূপা ও মোঃ শাহিন হক এর শুভ বিবাহ ডিজিটাল আমন্ত্রণপত্র।">
+<meta property="og:title" content="শুভ বিবাহ - রাকিবা ও শাহিন">
+<meta property="og:description" content="৯ই অক্টোবর, ২০২৬ ইং রোজ শুক্রবার | পায়রা কনভেনশন সেন্টার, নারায়ণগঞ্জ">
+<meta property="og:type" content="website">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Canvas Confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<style>
+  :root {
+    --cream: #f6f0e4;
+    --cream-2: #efe6d3;
+    --maroon: #7a1f2b;
+    --maroon-dark: #591520;
+    --gold: #b8863b;
+    --gold-light: #d9b374;
+    --ink: #3a2a20;
+    --rose: #c96a6a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Hind Siliguri', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Noto Serif Bengali', serif;
+  }
+
+  .bg-layer {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: var(--cream);
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .bg-layer svg { position: absolute; opacity: 0.45; }
+  .bg-layer .f1 { top: -60px; left: -80px; width: 420px; }
+  .bg-layer .f2 { bottom: -100px; right: -100px; width: 520px; transform: rotate(20deg); }
+  .bg-layer .f3 { top: 40%; left: -140px; width: 340px; opacity: 0.3; }
+  .bg-layer .f4 { top: 10%; right: -120px; width: 300px; opacity: 0.3; }
+  .bg-layer .vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(246,240,228,0) 40%, rgba(122,31,43,0.06) 100%);
+  }
+
+  #hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+  }
+  .heart {
+    position: absolute;
+    bottom: -40px;
+    font-size: 20px;
+    color: var(--rose);
+    opacity: 0.55;
+    animation: floatUp linear infinite;
+    filter: drop-shadow(0 2px 2px rgba(122,31,43,0.15));
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.65; }
+    50% { transform: translateY(-55vh) translateX(20px) rotate(15deg); }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(-110vh) translateX(-15px) rotate(-10deg); opacity: 0; }
+  }
+
+  /* Top Right Action Bar */
+  .top-bar {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .admin-nav-btn {
+    background: #fffdf9;
+    border: 1px solid var(--gold);
+    color: var(--maroon);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(122,31,43,0.15);
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .admin-nav-btn:hover {
+    background: var(--maroon);
+    color: #fff;
+  }
+  .admin-nav-btn.active {
+    background: #14532d;
+    color: #f0fdf4;
+    border-color: #22c55e;
+  }
+
+  .music-btn {
+    background: #fffdf9;
+    border: 1px solid var(--gold);
+    color: var(--maroon);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(122,31,43,0.2);
+    transition: all 0.3s ease;
+  }
+  .music-btn.playing {
+    background: var(--maroon);
+    color: #fff;
+    border-color: var(--gold-light);
+    animation: pulseGlow 2s infinite;
+  }
+  @keyframes pulseGlow {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(184,134,59,0.5); }
+    50% { transform: scale(1.08); box-shadow: 0 0 20px rgba(184,134,59,0.8); }
+  }
+
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 70px 20px;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1400px;
+    padding: 60px 20px 40px;
+  }
+  .card3d {
+    width: 100%;
+    max-width: 520px;
+    background: linear-gradient(160deg, #fffdf8, var(--cream-2));
+    border: 2px solid rgba(184,134,59,0.45);
+    border-radius: 12px;
+    padding: 50px 32px;
+    text-align: center;
+    box-shadow: 0 30px 60px -20px rgba(89,21,32,0.35), 0 0 0 1px rgba(184,134,59,0.15) inset;
+    animation: popIn 1.3s cubic-bezier(0.16, 0.9, 0.3, 1.05) forwards;
+  }
+  @keyframes popIn {
+    0% { transform: scale(0.85) translateY(40px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+  }
+
+  .bismillah {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 16px;
+    color: var(--maroon);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+  .kicker {
+    letter-spacing: 0.12em;
+    font-size: 13px;
+    color: var(--gold);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .rose-icon {
+    width: 60px;
+    margin: 8px auto 16px;
+    display: block;
+  }
+  .hero h1 {
+    font-size: 32px;
+    color: var(--maroon-dark);
+    margin: 6px 0;
+    line-height: 1.3;
+    font-weight: 700;
+  }
+  .amp {
+    display: block;
+    font-size: 22px;
+    color: var(--gold);
+    margin: 6px 0;
+    font-weight: 400;
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: var(--ink);
+    opacity: 0.85;
+    margin-top: 14px;
+  }
+
+  /* Countdown */
+  .countdown-box {
+    margin-top: 28px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px dashed var(--gold);
+    border-radius: 8px;
+  }
+  .countdown-title {
+    font-size: 13px;
+    color: var(--maroon);
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+  .timer-grid {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+  .timer-unit {
+    min-width: 60px;
+    padding: 8px 4px;
+    background: #fffdf9;
+    border: 1px solid rgba(184,134,59,0.3);
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+  }
+  .timer-num {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--maroon-dark);
+  }
+  .timer-lbl {
+    font-size: 11px;
+    color: var(--gold);
+  }
+
+  .scroll-hint {
+    margin-top: 26px;
+    font-size: 13px;
+    color: var(--maroon);
+    opacity: 0.75;
+    animation: bob 2s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  .sec-head {
+    text-align: center;
+    margin-bottom: 38px;
+  }
+  .sec-head .kicker { margin-bottom: 6px; }
+  .sec-head h2 {
+    font-size: 28px;
+    color: var(--maroon-dark);
+    font-weight: 700;
+  }
+  .divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 14px auto 0;
+  }
+
+  .couple {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 600px) {
+    .couple { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 26px; }
+    .card3d { padding: 40px 20px; }
+  }
+
+  .person {
+    background: #fffdf9;
+    border: 1px solid rgba(184,134,59,0.35);
+    border-radius: 10px;
+    padding: 30px 22px;
+    text-align: center;
+    box-shadow: 0 14px 30px -18px rgba(89,21,32,0.25);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .person:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 35px -16px rgba(89,21,32,0.3);
+  }
+  .person .role {
+    display: inline-block;
+    padding: 4px 14px;
+    background: #fbf3e5;
+    border: 1px solid var(--gold-light);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--maroon);
+    margin-bottom: 12px;
+  }
+  .person .name {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 22px;
+    color: var(--maroon-dark);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .person .meta {
+    font-size: 14.5px;
+    line-height: 1.85;
+    color: var(--ink);
+    opacity: 0.9;
+  }
+  .person .meta b { color: var(--maroon); font-weight: 600; }
+
+  .details {
+    display: grid;
+    gap: 16px;
+  }
+  .detail-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #fffdf9;
+    border: 1px solid rgba(184,134,59,0.3);
+    border-radius: 10px;
+    padding: 20px 22px;
+    box-shadow: 0 10px 24px -18px rgba(89,21,32,0.2);
+  }
+  .detail-row .ico {
+    font-size: 26px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fbf3e5;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .detail-row .label {
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    margin-bottom: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .detail-row .val {
+    font-size: 16.5px;
+    color: var(--maroon-dark);
+    font-weight: 600;
+  }
+
+  .action-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 14px;
+    justify-content: center;
+  }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid var(--gold);
+    background: #fff;
+    color: var(--maroon);
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .btn-outline:hover {
+    background: var(--maroon);
+    color: #fff;
+    border-color: var(--maroon);
+  }
+
+  .letter {
+    background: #fffdf9;
+    border: 1px solid rgba(184,134,59,0.35);
+    border-radius: 12px;
+    padding: 38px 30px;
+    box-shadow: 0 14px 30px -18px rgba(89,21,32,0.22);
+    font-size: 16px;
+    line-height: 2.1;
+    color: var(--ink);
+    text-align: justify;
+  }
+  .letter .names-in-line {
+    color: var(--maroon);
+    font-weight: 700;
+  }
+
+  /* Wish Box */
+  .wish-box {
+    background: linear-gradient(160deg, #fffdf8, var(--cream-2));
+    border: 1px solid rgba(184,134,59,0.45);
+    border-radius: 12px;
+    padding: 40px 28px;
+    text-align: center;
+    box-shadow: 0 20px 40px -20px rgba(89,21,32,0.3);
+  }
+  .wish-box p {
+    font-size: 15px;
+    opacity: 0.85;
+    margin: 8px 0 20px;
+  }
+
+  .quick-blessings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 16px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .chip {
+    font-size: 12.5px;
+    background: #fff;
+    border: 1px solid var(--gold-light);
+    color: var(--maroon);
+    padding: 5px 12px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .chip:hover {
+    background: #fbf3e5;
+  }
+
+  input[type="text"], input[type="password"], textarea {
+    width: 100%;
+    max-width: 480px;
+    border: 1px solid rgba(184,134,59,0.5);
+    border-radius: 8px;
+    padding: 13px 16px;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 15px;
+    background: #fff;
+    color: var(--ink);
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  }
+  textarea {
+    min-height: 90px;
+    resize: vertical;
+  }
+  input:focus, textarea:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 1px;
+  }
+
+  .send-btn {
+    margin-top: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--maroon);
+    color: #fdf6ec;
+    border: none;
+    padding: 14px 34px;
+    border-radius: 40px;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 12px 24px -8px rgba(122,31,43,0.55);
+    transition: all 0.25s ease;
+  }
+  .send-btn:hover {
+    transform: translateY(-2px);
+    background: var(--maroon-dark);
+    box-shadow: 0 16px 30px -8px rgba(122,31,43,0.6);
+  }
+  .send-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* Public Received Wishes Feed */
+  .public-wishes-wrap {
+    margin-top: 45px;
+  }
+  .public-wishes-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(184,134,59,0.3);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  .public-wishes-head h3 {
+    font-size: 22px;
+    color: var(--maroon-dark);
+  }
+  .count-pill {
+    background: #fff;
+    border: 1px solid var(--gold-light);
+    color: var(--maroon);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 700;
+  }
+  .wishes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  @media (min-width: 640px) {
+    .wishes-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .public-wish-card {
+    background: #fffdf9;
+    border: 1px solid rgba(184,134,59,0.3);
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 4px 14px rgba(89,21,32,0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .public-wish-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(89,21,32,0.1);
+  }
+  .public-wish-card .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    border-bottom: 1px dashed rgba(184,134,59,0.25);
+    padding-bottom: 6px;
+  }
+  .public-wish-card .sender-name {
+    font-weight: 700;
+    color: var(--maroon);
+    font-size: 15px;
+  }
+  .public-wish-card .sender-date {
+    font-size: 11px;
+    color: #8c7b70;
+  }
+  .public-wish-card .card-msg {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+  .del-wish-btn {
+    background: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #f87171;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .del-wish-btn:hover {
+    background: #b91c1c;
+    color: #fff;
+  }
+
+  /* Admin Modal */
+  .admin-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(3px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  .admin-modal-overlay.open {
+    display: flex;
+  }
+  .admin-modal {
+    background: #fff;
+    border: 2px solid var(--gold);
+    border-radius: 14px;
+    max-width: 560px;
+    width: 100%;
+    padding: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .modal-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--cream-2);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+  }
+  .modal-top h3 {
+    color: var(--maroon-dark);
+    font-size: 18px;
+  }
+  .close-modal-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #777;
+    cursor: pointer;
+  }
+  .modal-body {
+    overflow-y: auto;
+    flex: 1;
+  }
+  .admin-login-box {
+    text-align: center;
+    padding: 20px 10px;
+  }
+  .admin-stats-card {
+    background: linear-gradient(135deg, var(--maroon-dark), var(--maroon));
+    color: #fff;
+    padding: 18px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 18px;
+    box-shadow: 0 6px 18px rgba(89,21,32,0.25);
+  }
+  .admin-stats-card .num {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .admin-stats-card .lbl {
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+    opacity: 0.9;
+  }
+  .admin-table-item {
+    background: #fffdf9;
+    border: 1px solid var(--cream-2);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* Toast Notification */
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--maroon-dark);
+    color: #fdf6ec;
+    padding: 14px 26px;
+    border-radius: 30px;
+    font-size: 15px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    z-index: 120;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+    font-weight: 500;
+    border: 1px solid var(--gold-light);
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .share-strip {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  footer {
+    text-align: center;
+    padding: 50px 20px 40px;
+    font-size: 13.5px;
+    color: var(--ink);
+    opacity: 0.85;
+    position: relative;
+    z-index: 1;
+  }
+
+  ::selection { background: var(--gold-light); color: var(--maroon-dark); }
+</style>
+</head>
+<body>
+
+<div class="bg-layer">
+  <svg class="f1" viewBox="0 0 400 400"><g fill="none" stroke="#7a1f2b" stroke-width="1.4"><path d="M200 60 C 260 90, 280 150, 230 190 C 280 210, 290 270, 230 300 C 190 330, 130 320, 110 270 C 60 280, 30 230, 70 190 C 30 160, 50 100, 110 100 C 120 60, 170 40, 200 60 Z"/><circle cx="200" cy="190" r="18" stroke="#b8863b"/></g></svg>
+  <svg class="f2" viewBox="0 0 400 400"><g fill="none" stroke="#c96a6a" stroke-width="1.2"><path d="M200 60 C 260 90, 280 150, 230 190 C 280 210, 290 270, 230 300 C 190 330, 130 320, 110 270 C 60 280, 30 230, 70 190 C 30 160, 50 100, 110 100 C 120 60, 170 40, 200 60 Z"/><circle cx="200" cy="190" r="14" stroke="#7a1f2b"/></g></svg>
+  <svg class="f3" viewBox="0 0 300 300"><g fill="none" stroke="#b8863b" stroke-width="1"><path d="M150 40 C 200 70, 210 130, 160 150 C 200 170, 210 230, 150 250 C 110 270, 70 250, 80 200 C 40 210, 30 160, 70 150 C 40 130, 60 80, 110 90 C 110 60, 130 40, 150 40 Z"/></g></svg>
+  <svg class="f4" viewBox="0 0 300 300"><g fill="none" stroke="#7a1f2b" stroke-width="1"><path d="M150 40 C 200 70, 210 130, 160 150 C 200 170, 210 230, 150 250 C 110 270, 70 250, 80 200 C 40 210, 30 160, 70 150 C 40 130, 60 80, 110 90 C 110 60, 130 40, 150 40 Z"/></g></svg>
+  <div class="vignette"></div>
+</div>
+
+<div id="hearts"></div>
+
+<!-- Top Action Bar with Admin Option and Music Toggle -->
+<div class="top-bar">
+  <button class="admin-nav-btn" id="adminTopBtn" onclick="openAdminModal()">
+    🛡️ Admin
+  </button>
+  <button class="music-btn" id="musicToggleBtn" title="মিউজিক চালু / বন্ধ করুন" aria-label="Toggle Wedding Music">
+    🎵
+  </button>
+</div>
+
+<!-- Background Music Audio Element -->
+<audio id="weddingAudio" loop preload="auto" autoplay>
+  <source src="music.mp3" type="audio/mp3">
+  <source src="wedding-music.mp3" type="audio/mp3">
+  <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=indian-wedding-shehnai-112191.mp3" type="audio/mp3">
+</audio>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="card3d">
+    <div class="bismillah">بِسْمِ اللهِ الرَّحْمٰনِ الرَّحِيْمِ</div>
+    <div class="kicker">আপনাকে ও আপনার পরিবারকে আন্তরিক আমন্ত্রণ</div>
+    <svg class="rose-icon" viewBox="0 0 60 60" fill="none" stroke="#7a1f2b" stroke-width="1.6">
+      <path d="M30 10 C40 16 42 28 32 32 C42 36 40 48 30 50 C22 52 14 46 18 38 C8 40 6 28 16 26 C8 22 14 10 24 14 C24 8 27 8 30 10 Z"/>
+    </svg>
+    <h1>রাকিবা সুলতানা রূপা<span class="amp">&</span>মোঃ শাহিন হক</h1>
+    <div class="hero-sub">শুভ বিবাহ অনুষ্ঠানে আপনাকে সাদরে আমন্ত্রণ জানানো হচ্ছে</div>
+
+    <!-- Countdown Timer -->
+    <div class="countdown-box">
+      <div class="countdown-title">⏳ শুভ বিবাহের শুভক্ষণ গণনা</div>
+      <div class="timer-grid">
+        <div class="timer-unit"><div class="timer-num" id="cdDays">০০</div><div class="timer-lbl">দিন</div></div>
+        <div class="timer-unit"><div class="timer-num" id="cdHours">০০</div><div class="timer-lbl">ঘণ্টা</div></div>
+        <div class="timer-unit"><div class="timer-num" id="cdMins">০০</div><div class="timer-lbl">মিনিট</div></div>
+        <div class="timer-unit"><div class="timer-num" id="cdSecs">০০</div><div class="timer-lbl">সেকেন্ড</div></div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">↓ বিস্তারিত জানতে নিচে স্ক্রল করুন</div>
+  </div>
+</section>
+
+<!-- COUPLE -->
+<section id="couple">
+  <div class="sec-head reveal">
+    <div class="kicker">পরিচিতি</div>
+    <h2>বর ও কনে</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="couple">
+    <div class="person reveal">
+      <div class="role">কনে</div>
+      <div class="name">রাকিবা সুলতানা রূপা</div>
+      <div class="meta">
+        পিতা: <b>মৃত. আর. হায়দার রানা</b><br>
+        মাতা: <b>শিরিনা সুলতানা পান্না</b><br>
+        নিবাস: ৪১নং শাহসুজা রোড, পাইকপাড়া, নারায়ণগঞ্জ
+      </div>
+    </div>
+    <div class="person reveal">
+      <div class="role">বর</div>
+      <div class="name">মোঃ শাহিন হক</div>
+      <div class="meta">
+        পিতা: <b>মরহুম নুরুল হক</b><br>
+        মাতা: <b>মোসাম্মৎ সেলিনা হক</b><br>
+        নিবাস: আমহারিয়া মসজিদ গলি, জল্লারপাড়, নারায়ণগঞ্জ
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section id="details">
+  <div class="sec-head reveal">
+    <div class="kicker">অনুষ্ঠান সূচী</div>
+    <h2>শুভ বিবাহ</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="details">
+    <div class="detail-row reveal">
+      <div class="ico">📅</div>
+      <div><div class="label">তারিখ</div><div class="val">৯ই অক্টোবর, ২০২৬ ইং</div></div>
+    </div>
+    <div class="detail-row reveal">
+      <div class="ico">🗓️</div>
+      <div><div class="label">রোজ</div><div class="val">শুক্রবার</div></div>
+    </div>
+    <div class="detail-row reveal">
+      <div class="ico">🍽️</div>
+      <div><div class="label">প্রীতিভোজ</div><div class="val">দুপুর ১টা ৩১ মিনিট</div></div>
+    </div>
+    <div class="detail-row reveal">
+      <div class="ico">📍</div>
+      <div><div class="label">স্থান</div><div class="val">পায়রা কনভেনশন সেন্টার, নিতাইগঞ্জ মোড়, নারায়ণগঞ্জ</div></div>
+    </div>
+  </div>
+
+  <div class="action-btns reveal">
+    <a href="https://maps.google.com/?q=Payra+Convention+Center+Nitaiganj+Narayanganj" target="_blank" rel="noopener noreferrer" class="btn-outline">
+      📍 গুগল ম্যাপে দেখুন
+    </a>
+    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E0%A6%B6%E0%A7%81%E0%A6%AD+%E0%A6%AC%E0%A6%BF%E0%A6%AC%E0%A6%BE%E0%A6%B9+-+%E0%A6%B0%E0%A6%BE%E0%A6%95%E0%A6%BF%E0%A6%AC%E0%A6%BE+%E0%A6%93+%E0%A6%B6%E0%A6%BE%E0%A6%B9%E0%A6%BF%E0%A6%A8&dates=20261009T073100Z/20261009T113000Z&details=%E0%A6%B0%E0%A6%BE%E0%A6%95%E0%A6%BF%E0%A6%AC%E0%A6%BE+%E0%A6%93+%E0%A6%B6%E0%A6%BE%E0%A6%B9%E0%A6%BF%E0%A6%A8%E0%A7%87%E0%A6%B0+%E0%A6%B6%E0%A7%81%E0%A6%AD+%E0%A6%AC%E0%A6%BF%E0%A6%AC%E0%A6%BE%E0%A6%B9+%E0%A6%85%E0%A6%A8%E0%A7%81%E0%A6%B7%E0%A7%8D%E0%A6%A0%E0%A6%BE%E0%A6%A8&location=%E0%A6%AA%E0%A6%BE%E0%A6%AF%E0%A6%BC%E0%A6%B0%E0%A6%BE+%E0%A6%95%E0%A6%A8%E0%A6%AD%E0%A7%87%E0%A6%A8%E0%A6%B6%E0%A6%A8+%E0%A6%B8%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F%E0%A6%BE%E0%A6%B0%2C+%E0%A6%A8%E0%A6%BF%E0%A6%A4%E0%A6%BE%E0%A6%87%E0%A6%97%E0%A6%9E%E0%A7%8D%E0%A6%9C+%E0%A6%AE%E0%A7%8B%E0%A6%A1%E0%A6%BC%2C+%E0%A6%A8%E0%A6%BE%E0%A6%B0%E0%A6%BE%E0%A6%AF%E0%A6%BC%E0%A6%A3%E0%A6%97%E0%A6%9E%E0%A7%8D%E0%A6%9C" target="_blank" rel="noopener noreferrer" class="btn-outline">
+      🗓️ ক্যালেন্ডারে যুক্ত করুন
+    </a>
+  </div>
+</section>
+
+<!-- LETTER -->
+<section id="letter">
+  <div class="sec-head reveal">
+    <div class="kicker">আমন্ত্রণ পত্র</div>
+    <h2>দাওয়াত</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="letter reveal">
+    জনাব/জনাবা,<br><br>
+    আসসালামু আলাইকুম।<br><br>
+    পরম করুণাময় আল্লাহ তায়ালার অশেষ রহমতে আগামী ৯ই অক্টোবর, ২০২৬ ইং রোজ শুক্রবার, আমাদের সর্বাধিক প্রিয় কন্যা <span class="names-in-line">রাকিবা সুলতানা রূপা</span> এর সহিত মরহুম নুরুল হক সাহেবের সুযোগ্য পুত্র <span class="names-in-line">মোঃ শাহিন হক</span> এর শুভ বিবাহের দিন ধার্য করা হয়েছে।<br><br>
+    উক্ত শুভ বিবাহ অনুষ্ঠানে আপনার/আপনাদের সপরিবারে উপস্থিতি ও নবদম্পতির জন্য আন্তরিক দোয়া সাদরে কামনা করছি।
+  </div>
+</section>
+
+<!-- WISHES GUESTBOOK -->
+<section id="wishes">
+  <div class="sec-head reveal">
+    <div class="kicker">দোয়া ও শুভেচ্ছা</div>
+    <h2>নবদম্পতির জন্য শুভকামনা জানান</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="wish-box reveal">
+    <p>নিচে আপনার নাম ও শুভকামনা লিখে দোয়া পাঠান। আপনার পাঠানো বার্তাটি সংরক্ষিত হবে ও নিচে প্রদর্শিত হবে।</p>
+
+    <!-- Quick preset chips -->
+    <div class="quick-blessings">
+      <span class="chip" onclick="fillWish('অনেক অনেক দোয়া ও শুভকামনা রইল! সুখী ও শান্তিময় দাম্পত্য জীবন হোক।')">🌸 সুখী দাম্পত্য জীবন হোক</span>
+      <span class="chip" onclick="fillWish('আল্লাহ আপনাদের জীবনে বরকত ও অফুরন্ত সুখ দান করুন। আমিন!')">🤲 বরকত ও সুখ দান করুন</span>
+      <span class="chip" onclick="fillWish('শুভ বিবাহ! আপনাদের আগামী দিনগুলো আনন্দে ভরে উঠুক।')">💐 শুভ বিবাহ</span>
+    </div>
+
+    <input type="text" id="userName" placeholder="আপনার নাম (ঐচ্ছিক)" maxlength="100">
+    <textarea id="wishText" placeholder="আপনার আন্তরিক শুভেচ্ছাবার্তা লিখুন..." maxlength="500"></textarea><br>
+    <button class="send-btn" id="sendBtn">
+      <span>💌</span> শুভেচ্ছা পাঠান
+    </button>
+  </div>
+
+  <!-- Share options -->
+  <div class="share-strip reveal">
+    <button class="btn-outline" onclick="shareWhatsApp()">💬 হোয়াটসঅ্যাপে নিমন্ত্রণ পাঠান</button>
+    <button class="btn-outline" onclick="copyInviteLink()">🔗 ইনভাইট লিংক কপি করুন</button>
+  </div>
+
+  <!-- PUBLIC RECEIVED WISHES (অন্যরাও দেখতে পারবে) -->
+  <div class="public-wishes-wrap reveal">
+    <div class="public-wishes-head">
+      <div>
+        <h3>প্রাপ্ত শুভেচ্ছাবার্তা সমূহ</h3>
+        <p style="font-size:12px; color:#777;">অতিথিদের পাঠানো দোয়া ও শুভকামনা</p>
+      </div>
+      <div class="count-pill" id="publicWishCountBadge">মোট ০টি শুভেচ্ছা</div>
+    </div>
+
+    <div class="wishes-grid" id="publicWishesGrid">
+      <p style="text-align:center; color:#888; padding:20px; grid-column: 1/-1;">শুভেচ্ছাবার্তা লোড হচ্ছে...</p>
+    </div>
+
+    <!-- Bottom Admin Link Option -->
+    <div style="text-align:center; margin-top:24px;">
+      <button onclick="openAdminModal()" style="background:none; border:none; color:var(--maroon); font-size:13px; cursor:pointer; text-decoration:underline;">
+        🛡️ Admin অপশন
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ADMIN MODAL (লগইন এবং ড্যাশবোর্ড) -->
+<div class="admin-modal-overlay" id="adminModalOverlay" onclick="handleOverlayClick(event)">
+  <div class="admin-modal">
+    <div class="modal-top">
+      <h3 id="adminModalTitle">🛡️ Admin অপশন</h3>
+      <button class="close-modal-btn" onclick="closeAdminModal()">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <!-- Admin Login Form -->
+      <div id="adminLoginFormArea" class="admin-login-box">
+        <p style="font-size:14px; color:#444; margin-bottom:12px;">
+          প্রাপ্ত শুভেচ্ছাবার্তা, কে পাঠিয়েছে এবং কাউন্ট দেখতে ও মুছে ফেলতে পাসওয়ার্ড দিন:
+        </p>
+        <form onsubmit="handleAdminLogin(event)" style="max-width:300px; margin:0 auto;">
+          <input type="password" id="adminPassInput" placeholder="পাসওয়ার্ড লিখুন" required style="text-align:center;">
+          <button type="submit" class="send-btn" style="width:100%; padding:10px; margin-top:4px;">লগইন</button>
+        </form>
+      </div>
+
+      <!-- Authenticated Admin Dashboard -->
+      <div id="adminDashboardArea" style="display:none;">
+        <div class="admin-stats-card">
+          <div class="num" id="adminWishCounter">০</div>
+          <div class="lbl">মোট শুভেচ্ছাবার্তা জমা হয়েছে</div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <h4 style="color:var(--maroon-dark); font-size:15px;">সকল শুভেচ্ছাবার্তা ও ডিলিট অপশন:</h4>
+          <button onclick="handleAdminLogout()" style="background:none; border:none; color:#b91c1c; font-size:12px; cursor:pointer; text-decoration:underline;">লগআউট</button>
+        </div>
+
+        <div id="adminWishItemsList" style="max-height:360px; overflow-y:auto; padding-right:4px;">
+          লোড হচ্ছে...
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  রাকিবা <span style="color:#c96a6a;">♥</span> শাহিন &nbsp;|&nbsp; ৯ অক্টোবর, ২০২৬ ইং<br>
+  <button onclick="openAdminModal()" style="background:none; border:none; color:var(--gold); font-size:11px; cursor:pointer; margin-top:6px; text-decoration:underline;">
+    Admin
+  </button>
+</footer>
+
+<div class="toast" id="toast">শুভেচ্ছা পাঠানো হয়েছে 💐</div>
+
+<!-- FIREBASE CLOUD FIRESTORE CDN SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { 
+    getFirestore, 
+    collection, 
+    addDoc, 
+    onSnapshot, 
+    query, 
+    limit,
+    doc,
+    deleteDoc
+  } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  // Active Firebase Configuration
+  const firebaseConfig = {
+  "projectId": "pivotal-arch-38gvj",
+  "appId": "1:397381220341:web:87d92b42501524696212bc",
+  "apiKey": "AIzaSyDdfxQGrwtHp6NQiaknljQ0SM6FKrDDHi4",
+  "authDomain": "pivotal-arch-38gvj.firebaseapp.com",
+  "firestoreDatabaseId": "ai-studio-73291969-1067-4f87-a4f0-3ee53b81dd82",
+  "storageBucket": "pivotal-arch-38gvj.firebasestorage.app",
+  "messagingSenderId": "397381220341",
+  "measurementId": "",
+  "oAuthClientId": "397381220341-63qeh5q87352c0ekqff2p5g2hifgk14g.apps.googleusercontent.com",
+  "recaptchaSiteKey": ""
+};
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app, firebaseConfig.firestoreDatabaseId || undefined);
+  const wishesCol = collection(db, 'wishes');
+
+  const sendBtn = document.getElementById('sendBtn');
+  const wishText = document.getElementById('wishText');
+  const userName = document.getElementById('userName');
+
+  window.allWishesData = [];
+  window.db = db;
+
+  // Real-time listener for wishes
+  try {
+    const q = query(wishesCol, limit(200));
+    onSnapshot(q, (snapshot) => {
+      const items = [];
+      snapshot.forEach(docSnap => {
+        items.push({ id: docSnap.id, ...docSnap.data() });
+      });
+
+      // Sort newest first by createdAt
+      items.sort((a, b) => {
+        const timeA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+        const timeB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+        return timeB - timeA;
+      });
+
+      window.allWishesData = items;
+
+      // Render public feed
+      window.renderPublicWishes();
+
+      // Render admin view if currently logged in
+      if (window.isAdminLoggedIn) {
+        window.renderAdminDashboard();
+      }
+    }, (err) => {
+      console.warn("Firestore error:", err);
+    });
+  } catch (err) {
+    console.error("Firebase init listener error:", err);
+  }
+
+  // Delete wish function (Admin)
+  window.deleteWishItem = async function(id) {
+    if (!confirm('আপনি কি এই শুভেচ্ছাবার্তাটি মুছে ফেলতে চান?')) return;
+    try {
+      await deleteDoc(doc(db, 'wishes', id));
+      showToast('শুভেচ্ছাবার্তা মুছে ফেলা হয়েছে।');
+    } catch (err) {
+      console.error("Delete error:", err);
+      showToast('মুছতে সমস্যা হয়েছে। আবার চেষ্টা করুন।');
+    }
+  };
+
+  // Send wish function
+  sendBtn.addEventListener('click', async () => {
+    const msg = wishText.value.trim();
+    const name = userName.value.trim();
+
+    if (!msg) {
+      showToast('অনুগ্রহ করে আপনার শুভেচ্ছাবার্তাটি লিখুন');
+      wishText.focus();
+      return;
+    }
+
+    sendBtn.disabled = true;
+    sendBtn.innerHTML = '<span>⏳</span> পাঠানো হচ্ছে...';
+
+    try {
+      await addDoc(wishesCol, {
+        name: name ? name.slice(0, 100) : "বেনামী শুভাকাঙ্ক্ষী",
+        message: msg.slice(0, 500),
+        createdAt: new Date().toISOString()
+      });
+
+      // Confetti burst
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 70,
+          spread: 60,
+          origin: { y: 0.75 },
+          colors: ['#7a1f2b', '#b8863b', '#f6f0e4', '#c96a6a']
+        });
+      }
+
+      showToast('আপনার শুভেচ্ছা ও দোয়া সফলভাবে সংরক্ষিত হয়েছে! 💐');
+      wishText.value = '';
+      userName.value = '';
+    } catch (err) {
+      console.error("Save wish error:", err);
+      showToast('দুঃখিত, শুভেচ্ছা পাঠাতে সমস্যা হয়েছে। আবার চেষ্টা করুন।');
+    } finally {
+      sendBtn.disabled = false;
+      sendBtn.innerHTML = '<span>💌</span> শুভেচ্ছা পাঠান';
+    }
+  });
+
+  window.escapeHtml = function(str) {
+    return String(str || '').replace(/[&<>'"]/g, tag => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      "'": '&#39;',
+      '"': '&quot;'
+    }[tag] || tag));
+  };
+</script>
+
+<script>
+/* Preset blessing chip */
+function fillWish(text) {
+  const ta = document.getElementById('wishText');
+  ta.value = text;
+  ta.focus();
+}
+
+/* Toast message */
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+/* Bengali number converter */
+function toBengaliNumber(num) {
+  const bn = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+  return String(num).split('').map(d => bn[d] || d).join('');
+}
+
+/* Countdown to 9 October 2026, 13:31:00 BST (+06:00) */
+const weddingDate = new Date('2026-10-09T13:31:00+06:00').getTime();
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const diff = weddingDate - now;
+
+  if (diff <= 0) {
+    document.getElementById('cdDays').textContent = '০০';
+    document.getElementById('cdHours').textContent = '০০';
+    document.getElementById('cdMins').textContent = '০০';
+    document.getElementById('cdSecs').textContent = '০০';
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById('cdDays').textContent = toBengaliNumber(days < 10 ? '0' + days : days);
+  document.getElementById('cdHours').textContent = toBengaliNumber(hours < 10 ? '0' + hours : hours);
+  document.getElementById('cdMins').textContent = toBengaliNumber(mins < 10 ? '0' + mins : mins);
+  document.getElementById('cdSecs').textContent = toBengaliNumber(secs < 10 ? '0' + secs : secs);
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+/* AUTOPLAY AUDIO CONTROLLER */
+const musicBtn = document.getElementById('musicToggleBtn');
+const audioEl = document.getElementById('weddingAudio');
+let isMusicPlaying = false;
+
+function playWeddingMusic() {
+  if (!audioEl || isMusicPlaying) return;
+  audioEl.play().then(() => {
+    isMusicPlaying = true;
+    musicBtn.textContent = '🎵';
+    musicBtn.classList.add('playing');
+    removeAutoPlayListeners();
+  }).catch((e) => {
+    console.log("Autoplay waiting for interaction:", e);
+  });
+}
+
+function removeAutoPlayListeners() {
+  ['click', 'touchstart', 'scroll', 'keydown'].forEach(evt => {
+    document.removeEventListener(evt, playWeddingMusic);
+  });
+}
+
+window.addEventListener('DOMContentLoaded', playWeddingMusic);
+window.addEventListener('load', playWeddingMusic);
+
+['click', 'touchstart', 'scroll', 'keydown'].forEach(evt => {
+  document.addEventListener(evt, playWeddingMusic, { once: true, passive: true });
+});
+
+musicBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (isMusicPlaying) {
+    audioEl.pause();
+    musicBtn.textContent = '🔇';
+    musicBtn.classList.remove('playing');
+    isMusicPlaying = false;
+  } else {
+    audioEl.play().then(() => {
+      musicBtn.textContent = '🎵';
+      musicBtn.classList.add('playing');
+      isMusicPlaying = true;
+    });
+  }
+});
+
+/* ========================================================
+   PUBLIC WISHES RENDERING (অন্যরাও দেখতে পারবে)
+======================================================== */
+window.renderPublicWishes = function() {
+  const listEl = document.getElementById('publicWishesGrid');
+  const countBadge = document.getElementById('publicWishCountBadge');
+  const wishes = window.allWishesData || [];
+
+  if (countBadge) {
+    countBadge.textContent = 'মোট ' + toBengaliNumber(wishes.length) + 'টি শুভেচ্ছা';
+  }
+
+  if (!listEl) return;
+
+  if (wishes.length === 0) {
+    listEl.innerHTML = '<p style="text-align:center; color:#888; padding:24px; grid-column:1/-1;">এখনো কোনো শুভেচ্ছাবার্তা জমা হয়নি। আপনিই প্রথম শুভেচ্ছা জানান!</p>';
+    return;
+  }
+
+  listEl.innerHTML = wishes.map(item => {
+    const author = window.escapeHtml(item.name || 'বেনামী শুভাকাঙ্ক্ষী');
+    const msg = window.escapeHtml(item.message || '');
+    const dateStr = item.createdAt ? new Date(item.createdAt).toLocaleString('bn-BD', { month:'short', day:'numeric', hour:'numeric', minute:'numeric' }) : '';
+    const delBtn = window.isAdminLoggedIn ? 
+      `<button class="del-wish-btn" onclick="deleteWishItem('${item.id}')" title="ডিলিট করুন">ডিলিট</button>` : '';
+
+    return `
+      <div class="public-wish-card">
+        <div>
+          <div class="card-head">
+            <span class="sender-name">👤 ${author}</span>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="sender-date">${dateStr}</span>
+              ${delBtn}
+            </div>
+          </div>
+          <div class="card-msg">${msg}</div>
+        </div>
+        <div style="font-size:11px; color:var(--gold); margin-top:8px; display:flex; justify-content:space-between;">
+          <span>♥ শুভকামনা</span>
+          ${window.isAdminLoggedIn ? '<span style="color:#15803d; font-weight:600;">Admin Mode</span>' : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+};
+
+/* ========================================================
+   ADMIN MODAL & PASSWORD AUTH (password: 9thoctber)
+======================================================== */
+window.isAdminLoggedIn = false;
+
+function openAdminModal() {
+  const overlay = document.getElementById('adminModalOverlay');
+  overlay.classList.add('open');
+  if (window.isAdminLoggedIn) {
+    document.getElementById('adminLoginFormArea').style.display = 'none';
+    document.getElementById('adminDashboardArea').style.display = 'block';
+    window.renderAdminDashboard();
+  } else {
+    document.getElementById('adminLoginFormArea').style.display = 'block';
+    document.getElementById('adminDashboardArea').style.display = 'none';
+    const passInput = document.getElementById('adminPassInput');
+    if (passInput) passInput.focus();
+  }
+}
+
+function closeAdminModal() {
+  document.getElementById('adminModalOverlay').classList.remove('open');
+}
+
+function handleOverlayClick(e) {
+  if (e.target.id === 'adminModalOverlay') {
+    closeAdminModal();
+  }
+}
+
+function handleAdminLogin(e) {
+  e.preventDefault();
+  const pass = document.getElementById('adminPassInput').value.trim().toLowerCase();
+  // Password set to '9thoctber'
+  if (pass === "9thoctber") {
+    window.isAdminLoggedIn = true;
+    document.getElementById('adminLoginFormArea').style.display = 'none';
+    document.getElementById('adminDashboardArea').style.display = 'block';
+    document.getElementById('adminTopBtn').classList.add('active');
+    document.getElementById('adminTopBtn').innerHTML = '🛡️ Admin (Active)';
+    showToast("অ্যাডমিন লগইন সফল! 🔓");
+    window.renderAdminDashboard();
+    window.renderPublicWishes();
+  } else {
+    alert("ভুল পাসওয়ার্ড! সঠিক পাসওয়ার্ড দিন।");
+  }
+}
+
+function handleAdminLogout() {
+  window.isAdminLoggedIn = false;
+  document.getElementById('adminPassInput').value = '';
+  document.getElementById('adminLoginFormArea').style.display = 'block';
+  document.getElementById('adminDashboardArea').style.display = 'none';
+  document.getElementById('adminTopBtn').classList.remove('active');
+  document.getElementById('adminTopBtn').innerHTML = '🛡️ Admin';
+  showToast("লগআউট সম্পন্ন হয়েছে।");
+  window.renderPublicWishes();
+}
+
+window.renderAdminDashboard = function() {
+  const counterEl = document.getElementById('adminWishCounter');
+  const listEl = document.getElementById('adminWishItemsList');
+  const wishes = window.allWishesData || [];
+
+  if (counterEl) {
+    counterEl.textContent = toBengaliNumber(wishes.length);
+  }
+
+  if (!listEl) return;
+
+  if (wishes.length === 0) {
+    listEl.innerHTML = '<p style="color:#777; font-size:13px; text-align:center; padding:10px;">এখনো কোনো শুভেচ্ছা জমা হয়নি।</p>';
+    return;
+  }
+
+  listEl.innerHTML = wishes.map(item => {
+    const author = window.escapeHtml(item.name || 'বেনামী শুভাকাঙ্ক্ষী');
+    const msg = window.escapeHtml(item.message || '');
+    const dateStr = item.createdAt ? new Date(item.createdAt).toLocaleString('bn-BD', { month:'short', day:'numeric', hour:'numeric', minute:'numeric' }) : '';
+    return `
+      <div class="admin-table-item">
+        <div style="flex:1;">
+          <div style="display:flex; gap:10px; align-items:baseline;">
+            <strong style="color:var(--maroon); font-size:14px;">👤 কে পাঠিয়েছে: ${author}</strong>
+            <span style="font-size:11px; color:#888;">${dateStr}</span>
+          </div>
+          <div style="font-size:13.5px; color:#333; margin-top:4px; line-height:1.5;">${msg}</div>
+        </div>
+        <button class="del-wish-btn" onclick="deleteWishItem('${item.id}')" title="এই বার্তাটি ডিলিট করুন">
+          🗑️ ডিলিট
+        </button>
+      </div>
+    `;
+  }).join('');
+};
+
+/* Floating Petals */
+const heartsWrap = document.getElementById('hearts');
+const heartChars = ['♥', '🌸', '💐', '❤', '🌹'];
+function spawnHeart() {
+  const h = document.createElement('div');
+  h.className = 'heart';
+  h.textContent = heartChars[Math.floor(Math.random() * heartChars.length)];
+  h.style.left = (Math.random() * 95) + 'vw';
+  h.style.fontSize = (15 + Math.random() * 18) + 'px';
+  const dur = 8 + Math.random() * 7;
+  h.style.animationDuration = dur + 's';
+  heartsWrap.appendChild(h);
+  setTimeout(() => h.remove(), dur * 1000 + 400);
+}
+setInterval(spawnHeart, 900);
+for (let i = 0; i < 5; i++) setTimeout(spawnHeart, i * 350);
+
+/* Scroll Reveal */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => io.observe(el));
+
+function shareWhatsApp() {
+  const text = encodeURIComponent("শুভ বিবাহ - রাকিবা সুলতানা রূপা ও মোঃ শাহিন হক। আগামী ৯ই অক্টোবর, ২০২৬ ইং রোজ শুক্রবার নারায়ণগঞ্জ পায়রা কনভেনশন সেন্টারে শুভ বিবাহ অনুষ্ঠিত হবে। নিমন্ত্রণপত্র দেখতে ও শুভেচ্ছা জানাতে ভিজিট করুন: " + window.location.href);
+  window.open("https://api.whatsapp.com/send?text=" + text, '_blank');
+}
+
+function copyInviteLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    showToast("আমন্ত্রণ লিংক কপি করা হয়েছে! 📋");
+  }).catch(() => {
+    showToast("লিংক কপি করতে ব্যর্থ হয়েছে");
+  });
+}
+</script>
+
+</body>
+</html>
