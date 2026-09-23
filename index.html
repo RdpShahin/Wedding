@@ -759,11 +759,8 @@
 
 <div id="hearts"></div>
 
-<!-- Top Action Bar with Admin Option and Music Toggle -->
+<!-- Top Action Bar with Music Toggle -->
 <div class="top-bar">
-  <button class="admin-nav-btn" id="adminTopBtn" onclick="openAdminModal()">
-    🛡️ Admin
-  </button>
   <button class="music-btn" id="musicToggleBtn" title="মিউজিক চালু / বন্ধ করুন" aria-label="Toggle Wedding Music">
     🎵
   </button>
@@ -814,7 +811,7 @@
       <div class="role">কনে</div>
       <div class="name">রাকিবা সুলতানা রূপা</div>
       <div class="meta">
-        পিতা: <b>মৃত. আর. হায়দার রানা</b><br>
+        পিতা: <b>এম.আর. হায়দার রানা</b><br>
         মাতা: <b>শিরিনা সুলতানা পান্না</b><br>
         নিবাস: ৪১নং শাহসুজা রোড, পাইকপাড়া, নারায়ণগঞ্জ
       </div>
@@ -825,7 +822,7 @@
       <div class="meta">
         পিতা: <b>মরহুম নুরুল হক</b><br>
         মাতা: <b>মোসাম্মৎ সেলিনা হক</b><br>
-        নিবাস: আমহারিয়া মসজিদ গলি, জল্লারপাড়, নারায়ণগঞ্জ
+        নিবাস: আমহাট্টা মসজিদ গলি, জল্লারপাড়, নারায়ণগঞ্জ
       </div>
     </div>
   </div>
@@ -926,32 +923,30 @@
       <p style="text-align:center; color:#888; padding:20px; grid-column: 1/-1;">শুভেচ্ছাবার্তা লোড হচ্ছে...</p>
     </div>
 
-    <!-- Bottom Admin Link Option -->
+    <!-- Admin Option (একমাত্র স্থান) -->
     <div style="text-align:center; margin-top:24px;">
-      <button onclick="openAdminModal()" style="background:none; border:none; color:var(--maroon); font-size:13px; cursor:pointer; text-decoration:underline;">
-        🛡️ Admin অপশন
+      <button class="admin-nav-btn" id="adminSectionBtn" onclick="openAdminModal()" style="display:inline-flex; align-items:center; gap:6px;">
+        🛡️ Admin
       </button>
     </div>
   </div>
 </section>
 
-<!-- ADMIN MODAL (লগইন এবং ড্যাশবোর্ড) -->
+<!-- ADMIN MODAL -->
 <div class="admin-modal-overlay" id="adminModalOverlay" onclick="handleOverlayClick(event)">
   <div class="admin-modal">
     <div class="modal-top">
-      <h3 id="adminModalTitle">🛡️ Admin অপশন</h3>
+      <h3 id="adminModalTitle">🛡️ Admin</h3>
       <button class="close-modal-btn" onclick="closeAdminModal()">✕</button>
     </div>
 
     <div class="modal-body">
       <!-- Admin Login Form -->
       <div id="adminLoginFormArea" class="admin-login-box">
-        <p style="font-size:14px; color:#444; margin-bottom:12px;">
-          প্রাপ্ত শুভেচ্ছাবার্তা, কে পাঠিয়েছে এবং কাউন্ট দেখতে ও মুছে ফেলতে পাসওয়ার্ড দিন:
-        </p>
+        <h4 style="font-size:16px; font-weight:700; color:var(--maroon-dark); margin-bottom:14px;">পাসওয়ার্ড দিন</h4>
         <form onsubmit="handleAdminLogin(event)" style="max-width:300px; margin:0 auto;">
           <input type="password" id="adminPassInput" placeholder="পাসওয়ার্ড লিখুন" required style="text-align:center;">
-          <button type="submit" class="send-btn" style="width:100%; padding:10px; margin-top:4px;">লগইন</button>
+          <button type="submit" class="send-btn" style="width:100%; padding:10px; margin-top:8px;">লগইন</button>
         </form>
       </div>
 
@@ -976,10 +971,7 @@
 </div>
 
 <footer>
-  রাকিবা <span style="color:#c96a6a;">♥</span> শাহিন &nbsp;|&nbsp; ৯ অক্টোবর, ২০২৬ ইং<br>
-  <button onclick="openAdminModal()" style="background:none; border:none; color:var(--gold); font-size:11px; cursor:pointer; margin-top:6px; text-decoration:underline;">
-    Admin
-  </button>
+  রাকিবা <span style="color:#c96a6a;">♥</span> শাহিন &nbsp;|&nbsp; ৯ অক্টোবর, ২০২৬ ইং
 </footer>
 
 <div class="toast" id="toast">শুভেচ্ছা পাঠানো হয়েছে 💐</div>
@@ -1302,8 +1294,11 @@ function handleAdminLogin(e) {
     window.isAdminLoggedIn = true;
     document.getElementById('adminLoginFormArea').style.display = 'none';
     document.getElementById('adminDashboardArea').style.display = 'block';
-    document.getElementById('adminTopBtn').classList.add('active');
-    document.getElementById('adminTopBtn').innerHTML = '🛡️ Admin (Active)';
+    const adminBtn = document.getElementById('adminSectionBtn');
+    if (adminBtn) {
+      adminBtn.classList.add('active');
+      adminBtn.innerHTML = '🛡️ Admin (Active)';
+    }
     showToast("অ্যাডমিন লগইন সফল! 🔓");
     window.renderAdminDashboard();
     window.renderPublicWishes();
@@ -1317,8 +1312,11 @@ function handleAdminLogout() {
   document.getElementById('adminPassInput').value = '';
   document.getElementById('adminLoginFormArea').style.display = 'block';
   document.getElementById('adminDashboardArea').style.display = 'none';
-  document.getElementById('adminTopBtn').classList.remove('active');
-  document.getElementById('adminTopBtn').innerHTML = '🛡️ Admin';
+  const adminBtn = document.getElementById('adminSectionBtn');
+  if (adminBtn) {
+    adminBtn.classList.remove('active');
+    adminBtn.innerHTML = '🛡️ Admin';
+  }
   showToast("লগআউট সম্পন্ন হয়েছে।");
   window.renderPublicWishes();
 }
